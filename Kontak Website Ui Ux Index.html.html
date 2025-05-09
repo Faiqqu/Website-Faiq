@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontak - Timteng Essence</title>
+    <style>
+        /* Reset dan Style Dasar */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Arial, sans-serif;
+        }
+
+        body {
+            color: #333;
+            line-height: 1.6;
+            background-color: #fff;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* Layout Utama */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background-color: #fff;
+            padding: 15px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav a {
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+            padding: 5px 0;
+        }
+
+        nav a:hover {
+            color: #666;
+        }
+
+        /* Newsletter Section */
+        .newsletter-section {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('img/parfum-background.jpg');
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+            padding: 80px 20px;
+            text-align: center;
+            position: relative;
+        }
+
+        .newsletter-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .newsletter-content h2 {
+            font-size: 28px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        .newsletter-content p {
+            margin-bottom: 30px;
+            font-size: 16px;
+        }
+
+        .newsletter-image {
+            max-width: 200px;
+            margin-bottom: 30px;
+        }
+
+        .newsletter-form {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            max-width: 500px;
+            gap: 15px;
+        }
+
+        .newsletter-form input {
+            padding: 12px 15px;
+            border: none;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #333;
+            font-size: 14px;
+        }
+
+        .newsletter-form input::placeholder {
+            color: #666;
+        }
+
+        .newsletter-form textarea {
+            padding: 12px 15px;
+            border: none;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #333;
+            font-size: 14px;
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        /* Lokasi Section */
+        .lokasi-section {
+            background-color: #111;
+            color: #fff;
+            padding: 60px 20px;
+        }
+
+        .lokasi-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .lokasi-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .lokasi-title h2 {
+            font-size: 28px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        .lokasi-title p {
+            font-size: 16px;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .lokasi-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .lokasi-form {
+            flex: 1;
+            min-width: 300px;
+            max-width: 400px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .lokasi-form input {
+            padding: 12px 15px;
+            border: none;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            font-size: 14px;
+        }
+
+        .lokasi-form input::placeholder {
+            color: #aaa;
+        }
+
+        .lokasi-form textarea {
+            padding: 12px 15px;
+            border: none;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            font-size: 14px;
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        .lokasi-form button {
+            background-color: #ccc;
+            color: #111;
+            border: none;
+            padding: 12px 0;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .lokasi-form button:hover {
+            background-color: #fff;
+        }
+
+        .lokasi-map {
+            flex: 1;
+            min-width: 300px;
+            max-width: 500px;
+            height: 300px;
+        }
+
+        .lokasi-map img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .lokasi-info {
+            flex: 1;
+            min-width: 300px;
+            max-width: 400px;
+            padding: 20px 0;
+        }
+
+        .lokasi-info-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+            gap: 15px;
+        }
+
+        .lokasi-info-item i {
+            font-size: 20px;
+            color: #fff;
+            min-width: 20px;
+            text-align: center;
+        }
+
+        .lokasi-info-text h3 {
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+
+        .lokasi-info-text p {
+            font-size: 14px;
+            color: #ccc;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #fff;
+            color: #333;
+            padding: 20px 0;
+            text-align: center;
+            font-size: 14px;
+            border-top: 1px solid #eee;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .lokasi-content {
+                flex-direction: column;
+            }
+
+            .lokasi-form, .lokasi-map, .lokasi-info {
+                min-width: 100%;
+            }
+
+            nav ul {
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <ul>
+                    <li><a href="#">Beranda</a></li>
+                    <li><a href="#">Tentang Kami</a></li>
+                    <li><a href="#">Produk</a></li>
+                    <li><a href="#">Layanan</a></li>
+                    <li><a href="#" class="active">Kontak</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter-section">
+        <div class="newsletter-content">
+            <img src="https://static.wixstatic.com/media/9b4de5_fe53fc5cca4741edbf835b23df717bb8~mv2.png/v1/crop/x_289,y_206,w_871,h_1550/fill/w_190,h_338,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/sketsa%20uiux%20bintang%20(12).png" alt="Aplikasi Mobile" class="newsletter-image">
+            <h2>Daftar Newsletter Kami</h2>
+            <p>Dapatkan berita terkini dan penawaran spesial dari Timteng Essence</p>
+            <form class="newsletter-form">
+                <input type="text" placeholder="Enter your first name">
+                <input type="email" placeholder="Enter your email">
+                <textarea placeholder="Enter text here"></textarea>
+            </form>
+        </div>
+    </section>
+
+    <!-- Lokasi Section -->
+    <section class="lokasi-section">
+        <div class="lokasi-container">
+            <div class="lokasi-title">
+                <h2>Temukan Lokasi Kami</h2>
+                <p>Kunjungi kami dan rasakan pengalaman parfum Timur Tengah yang otentik.</p>
+            </div>
+            
+            <div class="lokasi-content">
+                <div class="lokasi-form">
+                    <input type="text" placeholder="Enter your first name">
+                    <input type="email" placeholder="Enter your email">
+                    <textarea placeholder="Enter text here"></textarea>
+                    <button type="submit">Send</button>
+                </div>
+                
+                <div class="lokasi-map">
+                    <img src="https://i.ibb.co.com/MxS3RF1c/Whats-App-Image-2025-05-09-at-11-49-11-0ddf323a.jpg"></a>
+                </div>
+                
+                <div class="lokasi-info">
+                    <div class="lokasi-info-item">
+                        <i class="fas fa-map-marker-alt">📍</i>
+                        <div class="lokasi-info-text">
+                            <h3>Alamat</h3>
+                            <p>Jl. Pengayoman, Kota Makassar, Sulawesi Selatan</p>
+                        </div>
+                    </div>
+                    
+                    <div class="lokasi-info-item">
+                        <i class="fas fa-clock">🕒</i>
+                        <div class="lokasi-info-text">
+                            <h3>Jam Buka</h3>
+                            <p>Sen-Jum 10 pagi-5 sore, Sab 1 siang-5 sore</p>
+                        </div>
+                    </div>
+                    
+                    <div class="lokasi-info-item">
+                        <i class="fas fa-phone">📞</i>
+                        <div class="lokasi-info-text">
+                            <h3>Telepon</h3>
+                            <p>415-111-2233</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 Timteng Essence. All Rights Reserved.</p>
+            <p>Designed and Developed by Trae AI</p>
+        </div>
+    </footer>
+</body>
+</html>
